@@ -49,21 +49,6 @@ typedef struct{
 } ad5765_t;
 
 
-static ad5765_t DEVICE_AD5765_DEFAULT = {
-    .spi_handler = &DEVICE_SPI_DEFAULT,
-    .gpio_num_csn = PICO_DEFAULT_SPI_CSN_PIN,
-    .use_gpio_rst = false,
-    .gpio_num_rst = 0,
-    .gpio_num_ldac = false,
-    .gpio_num_ldac = 0,
-    .use_gpio_clr = false,
-    .gpio_num_clr = 0,
-    .state_gpio0 = false,
-    .state_gpio1 = false,
-    .use_local_gnd_offset = false,
-    .init_done = false
-};
-
 // =========================================== FUNCTIONS ==============================================
 /*! \brief Function for configuring the Digital-Analog-Converter (DAC) AD5765 from Analog Devices with SPI interface
 * \param handler        Device handler 
