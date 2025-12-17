@@ -19,8 +19,7 @@ if(PICO_CYW43_SUPPORTED)
     )
 endif()
 
-target_include_directories(hal_wifi_tcp INTERFACE 
-    ${CMAKE_CURRENT_SOURCE_DIR}
+target_include_directories(hal_wifi_tcp INTERFACE
     ${CMAKE_CURRENT_SOURCE_DIR}/../..
 )
 
@@ -42,7 +41,6 @@ if(PICO_CYW43_SUPPORTED)
     )
 endif()
 
-target_include_directories(hal_wifi_udp INTERFACE 
-    ${CMAKE_CURRENT_SOURCE_DIR}
+target_include_directories(hal_wifi_udp INTERFACE
     ${CMAKE_CURRENT_SOURCE_DIR}/../..
 )

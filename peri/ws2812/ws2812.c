@@ -10,7 +10,7 @@ static uint sm_;
 static inline uint32_t urgb_u32(uint8_t r, uint8_t g, uint8_t b);
 
 
-void ws2812_init(PIO pio, uint pin) {
+void ws2812_init(PIO pio, uint8_t pin) {
     gpio_init(pin);
     gpio_set_dir(pin, GPIO_OUT);
     gpio_put(pin, true);

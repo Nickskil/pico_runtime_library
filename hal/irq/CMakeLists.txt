@@ -11,6 +11,5 @@ target_link_libraries(hal_irq INTERFACE
 )
 
 target_include_directories(hal_irq INTERFACE 
-    ${CMAKE_CURRENT_SOURCE_DIR}
     ${CMAKE_CURRENT_SOURCE_DIR}/../..
 )

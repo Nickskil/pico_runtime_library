@@ -22,6 +22,5 @@ if(PICO_CYW43_SUPPORTED)
 endif()
 
 target_include_directories(hal_btspp INTERFACE 
-    ${CMAKE_CURRENT_SOURCE_DIR}
     ${CMAKE_CURRENT_SOURCE_DIR}/../..
 )
