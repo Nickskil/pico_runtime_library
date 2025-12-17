@@ -1,5 +1,7 @@
 #include "adc/ad7779/ad7779.h"
 #include "hardware/gpio.h"
+#include "hal/clk/pio_clock.h"
+#include "hardware/pio.h"
 #include <stdio.h>
 
 
@@ -151,10 +153,12 @@ bool ad7779_init(ad7779_t *handler, ad7779_gpio_t *gpio_handler){
         ad7779_init_cs_pin(gpio_handler);
         ad7779_trigger_reset(gpio_handler);
         ad7779_start_pin(gpio_handler);
-        ad7779_enable_disable_shielding_channels(gpio_handler);
-        ad7779_enable_disable_shielding_electrode_ref(gpio_handler);
+
+        PIO pio = pio;
+        clk_generation_pio_init(pio, gpio_handler->clock_pin, 8192000)
         gpio_handler->init_done = true;
     }
+    return gpio_handler.init_done;
 
 
     // --- SPI initialization ---

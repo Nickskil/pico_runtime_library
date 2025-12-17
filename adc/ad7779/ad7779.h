@@ -94,20 +94,14 @@ typedef struct {
     \param cs_pin       GPIO pin for Chip-Select (CS)
     \param reset_pin    GPIO pin for Hardware Reset (RESET)
     \param start_pin    GPIO pin for synchronization (START)
-    \param shielding_channels_pin GPIO pin for shielding of channels
-    \param shielding_ref_pin GPIO pin for shielding of electrode reference
-    \param shielding_active_channels Flag to enable/disable shielding for active channels (False, shielding goes to GND)
-    \param shielding_electrode_ref Flag to enable/disable shielding for electrode reference (False, shielding goes to GND)
+    \param clock_pin    GPIO pin for Hardware Clock
     \param init_done    Flag to indicate if initialization was successful
 */
 typedef struct {
     uint8_t cs_pin;
     uint8_t reset_pin;
     uint8_t start_pin;
-    uint8_t shielding_channels_pin;
-    uint8_t shielding_ref_pin;
-    bool shielding_active_channels;
-    bool shielding_active_electrode_ref;
+    uint8_t clock_pin;
     bool init_done;
 } ad7779_gpio_t;
 

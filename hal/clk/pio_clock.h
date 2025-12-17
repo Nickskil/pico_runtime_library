@@ -53,9 +53,8 @@ static inline pio_sm_config blink_program_get_default_config(uint offset) {
     \param pio          PIO module
     \param pin          GPIO number for CLK generation
     \param freq         Frequency value of generated CLK signal in Hz
-    \param mcu_clk_hz   MCU system clock frequency in Hz
 */
-void clk_generation_pio_init(PIO pio, uint pin, uint freq_hz, uint mcu_clk_hz){
+void clk_generation_pio_init(PIO pio, uint pin, uint freq_hz){
     uint sm = 0;
     uint offset = pio_add_program(pio, &blink_program);
 
@@ -76,7 +75,7 @@ void clk_generation_pio_init(PIO pio, uint pin, uint freq_hz, uint mcu_clk_hz){
     pio_sm_set_enabled(pio, sm, true);
     // PIO counter program takes 3 more cycles in total than we pass as
     // input (wait for n + 1; mov; jmp)
-    pio->txf[sm] = (mcu_clk_hz / (2 * freq_hz)) - 3;
+    pio->txf[sm] = (clock_get_hz(clk_sys) / (2 * freq_hz)) - 3;
 }
 
 #endif

@@ -8,8 +8,8 @@ target_sources(adc_ad7779 INTERFACE
 target_link_libraries(adc_ad7779 INTERFACE
     pico_stdlib
 	hardware_gpio
-    hardware_spi
     hal_spi
+    hal_clk
 )
 
 target_include_directories(adc_ad7779 INTERFACE

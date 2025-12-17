@@ -3,7 +3,6 @@
 
 #include "hal/spi/spi.h"
 #include "hal/irq/irq.h"
-#include "hal/irq/irq.h"
 
 
 // More information: https://www.analog.com/media/en/technical-documentation/data-sheets/ad4858.pdf
@@ -47,7 +46,9 @@ typedef struct {
 */
 bool ad4858_init(ad4858_t *settings);
 
+
 bool ad4858_handler_pico_cmos_reciever_polling(ad4858_t *settings, uint32_t* data);
+
 
 bool ad4858_handler_pico_cmos_crc_check(ad4858_t *settings, uint8_t const message[], int nBytes, uint16_t recieved_crc);
 
@@ -113,6 +114,8 @@ void ad4858_handler_spi_set_test_pat_toggle(ad4858_t *settings, bool enable);
  */
 void ad4858_handler_spi_set_softspan(ad4858_t *settings, uint8_t channel, uint8_t lvl);
 
+
 void ad4858_start_conv(ad4858_t* settings);
+
 
 #endif
