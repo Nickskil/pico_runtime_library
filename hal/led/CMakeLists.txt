@@ -9,6 +9,11 @@ target_link_libraries(hal_led INTERFACE
 	pico_stdlib
 	hardware_gpio
 )
+if(PICO_CYW43_SUPPORTED)
+    target_link_libraries(hal_led INTERFACE
+		pico_cyw43_arch_none
+    )
+endif()
 
 target_include_directories(hal_led INTERFACE
     ${CMAKE_CURRENT_SOURCE_DIR}/../..
