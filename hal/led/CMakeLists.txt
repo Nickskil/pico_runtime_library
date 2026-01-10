@@ -5,13 +5,27 @@ target_sources(hal_led INTERFACE
     ${CMAKE_CURRENT_SOURCE_DIR}/led.c
 )
 
-target_link_libraries(hal_led INTERFACE
-	pico_stdlib
-	hardware_gpio
-)
-if(PICO_CYW43_SUPPORTED)
+if(PICO_BOARD MATCHES "_w")
     target_link_libraries(hal_led INTERFACE
+        pico_stdlib
+	    hardware_gpio
 		pico_cyw43_arch_none
+    )
+    message(STATUS "Add LED control using CYW43")
+    add_definitions(-DLED_CYW43_SUPPORTED)
+    target_compile_definitions(hal_led INTERFACE LED_CYW43_SUPPORTED)
+elseif(PICO_BOARD MATCHES "adafruit_kb")
+    target_link_libraries(hal_led INTERFACE
+        pico_stdlib
+	    hardware_gpio
+        peri_ws2812
+    )
+    message(STATUS "Add LED control using WS2812")
+    target_compile_definitions(hal_led INTERFACE LED_WS2812_SUPPORTED)
+else()
+    target_link_libraries(hal_led INTERFACE
+        pico_stdlib
+        hardware_gpio
     )
 endif()
 
