@@ -20,9 +20,9 @@ uint8_t get_gpio_default_led(void);
 
 
 /*! Function for initializing the default LED.
- * @return None
+ * @return Returns true if initialization was successful, false otherwise.
  */
-void init_default_led(void);
+bool init_default_led(void);
 
 
 /*! Function for setting the state of the default LED.

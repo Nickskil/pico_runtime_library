@@ -27,7 +27,7 @@ typedef struct{
 static i2c_rp2_t DEVICE_I2C_DEFAULT = {
     .pin_sda = PICO_DEFAULT_I2C_SDA_PIN,
     .pin_scl = PICO_DEFAULT_I2C_SCL_PIN,
-    .i2c_mod = PICO_DEFAULT_I2C,
+    .i2c_mod = i2c0,
     .fi2c_khz = 100,
     .avai_devices = 0,
     .init_done = false
